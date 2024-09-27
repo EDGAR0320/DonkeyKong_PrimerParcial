@@ -9,6 +9,7 @@
 class APlataforma;
 class ABarril;
 class AConoDisparador;
+class AObstaculo;
 
 UCLASS(minimalapi)
 class ADonkeyKong_SIS457GameMode : public AGameModeBase
@@ -22,6 +23,9 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	//Obstaculo
+	AObstaculo* obstaculo01;
+
 	virtual void Tick(float DeltaTime) override;
 	//Plataforma 
 	TArray <AActor*> PlataformasMap;
@@ -30,15 +34,17 @@ public:
 	FRotator Rotacion;
 	float Signo;
 	float Tiempo;
-	AActor* Destruir = nullptr;
 
+	// Plataforma seleccionada aleatoriamente
 	TArray<APlataforma*> PlataformasMoviles;
+	// Movimiento de bloques aleatorios
+	TArray<APlataforma*> BloquesMoviles;
+	// Movimiento Aleatorio
+	bool bPlataformasConMovimiento[5]; // Para marcar la plataforma con movimiento
 
-//	//Movimiento Aleatorio 
-//	bool bPlataformasConMovimiento[5];//Para marcar la platafroma tiene movimiento o no
-//
-//	/*TArray<AActor* >Barriles;
-//	AActor* Destruir;*/
+	//TArray<APlataforma*> PlataformasMoviles;
+	////Movimiento Aleatorio 
+	//bool bPlataformasConMovimiento[5];//Para marcar la platafroma tiene movimiento o no
 
 private:
 	// Referencia al Cono Disparador

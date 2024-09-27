@@ -39,7 +39,7 @@ APlataforma::APlataforma()
 void APlataforma::BeginPlay()
 {
 	Super::BeginPlay();
-	Super::BeginPlay();
+	
 	PosicionInicial = GetActorLocation();
 	PosicionActual = PosicionInicial;
 	PosicionFinal = PosicionActual + FVector(0.0f, -840.0f, 0.0f);
@@ -71,7 +71,6 @@ void APlataforma::MovimientoY()
 		else moverseY = true;
 	}
 
-	/*SetActorLocation(PosicionActual);*/
 }
 
 void APlataforma::MovimientoX()
@@ -90,22 +89,14 @@ void APlataforma::MovimientoX()
 
 void APlataforma::MovimientoAleatorio()
 {
-	if (PlataformasMoviles.Contains(this)) {
-		// Aplica movimiento aleatorio solo si es una de las plataformas móviles
-		MovimientoY();  // Movimiento en Y
-		MovimientoX();  // Movimiento en X
-	}
+	//if (PlataformasMoviles.Contains(this)) {
+	//	// Aplica movimiento aleatorio solo si es una de las plataformas móviles
+	//	MovimientoY();  // Movimiento en Y
+	//	MovimientoX();  // Movimiento en X
+	//}
+	//SetActorLocation(PosicionActual); 
+
+	MovimientoY();  // Movimiento en Y
+	MovimientoX();  // Movimiento en X
 	SetActorLocation(PosicionActual);
-
-	//MovimientoY();  // Movimiento en Y
-	//MovimientoX();  // Movimiento en X
-	//SetActorLocation(PosicionActual);
 }
-
-void APlataforma::EliminarDivisionIzquierdaADerecha()
-{
-	// Lógica para eliminar una división de la plataforma
-	// Esto puede ser simplemente hacer invisible la malla o cambiar su escala
-	plataforma->SetVisibility(false); // Ejemplo: hacer invisible
-}
-

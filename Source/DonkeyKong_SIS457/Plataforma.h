@@ -47,6 +47,5 @@ public:
 		void MovimientoY();
 		void MovimientoX();
 		void MovimientoAleatorio();
-		void EliminarDivisionIzquierdaADerecha(); // Nuevo método para eliminar una división
 
 };
